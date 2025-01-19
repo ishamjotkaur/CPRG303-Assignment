@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, ScrollView, Dimensions } from 'react-native';
 
 export default function App() {
   return (
@@ -43,12 +43,76 @@ export default function App() {
     </View>
     
     {/*Grid Section and Member Subscription Section -- Romanpreet Kaur*/}
-     
+      {/* Members Button Section */}
+      <View style={styles.membersButtonContainer}>
+  <TouchableOpacity style={styles.customButton} onPress={() => alert('Member')}>
+    <Text style={styles.customButtonText}>Member<Image
+            source={require('./assets/Image/arrow.png')} 
+            style={styles.arrowImage} 
+          /></Text>
+
+  </TouchableOpacity>
+</View>
+
+
+{/* Scrollable Images Section */}
+
+<ScrollView
+        style={styles.imageScrollContainer}
+        contentContainerStyle={styles.imageContentContainer}
+      >
+        <Image
+          source={require('./assets/Image/cute.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/eating.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/girl.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/kid.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/cute.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/eating.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/skateboard.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/sunglasses.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/woman.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/cute.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/skateboard.jpg')}
+          style={styles.gridImage}
+        />
+        <Image
+          source={require('./assets/Image/sunglasses.jpg')}
+          style={styles.gridImage}
+        />
+      </ScrollView>
      
     {/*Alert Button and Footer Section* -- Sahilpreet Singh*/}
-
     </View>
-    
   );
 }
 
@@ -141,5 +205,46 @@ const styles = StyleSheet.create({
   postImage:{
     width:25,
     height:25,
+  },
+  // Members Button Section
+  arrowImage: {
+    width: 25,
+    height: 10,
+    marginRight: 5,
+
+  },
+  membersButtonContainer: {
+   paddingHorizontal: 20,
+   paddingVertical: 12,    
+  },
+    customButton: {
+      backgroundColor: 'white',        
+      borderRadius: 3,  
+      paddingVertical: 6,
+      paddingHorizontal: 20,        
+      borderWidth: 0.5,           
+      borderColor: '#000',      
+    },
+  
+    customButtonText: {
+      color: '#000',            
+      fontSize: 14,             
+      fontWeight: 'bold',       
+      textAlign: 'center',      
+    },
+  
+  // Scrollable Image Section Styles
+  imageScrollContainer: {
+    marginVertical: 10,
+  },
+  imageContentContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  gridImage: {
+    width: '33%',  
+    height: 130,   
+    marginBottom: 2,
   },
 });
