@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, ScrollView, Dimensions, Button, Alert, SafeAreaView, ImageSourcePropType } from 'react-native';
+
+const showAlert = () => {
+  Alert.alert('Alert Button Pressed!');
+};
 
 export default function App() {
   return (
     /* Profile Details and Header Section -- Ishamjot Kaur*/
     <View style={styles.container1}>
-    <View style={styles.container}>
+    <View style={styles.alertContainer}>
     <Image source={require('./assets/Image/left-chevron.png')} 
        style={styles.leftChevronImage} />
        <View style={styles.headerContainer}>
@@ -112,6 +116,31 @@ export default function App() {
       </ScrollView>
      
     {/*Alert Button and Footer Section* -- Sahilpreet Singh*/}
+    <View style={styles.alertContainer}>
+      <Text style={styles.title}>Alert</Text>
+      <TouchableOpacity style={styles.alertButton} onPress={showAlert}>
+        <Text style={styles.alertButtonText}>Alert Button</Text>
+      </TouchableOpacity>
+    </View>
+
+    {/* Footer Section */}
+    <SafeAreaView style={styles.footerContainer}>
+      <View style={styles.content}>
+        <Text style={styles.title}>Alert</Text>
+        <TouchableOpacity style={styles.alertButton} onPress={showAlert}>
+          <Text style={styles.alertButtonText}>Alert Button</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.footer}>
+        <Image source={require('./assets/Image/home.png') as ImageSourcePropType} style={styles.icon} />
+        <Image source={require('./assets/Image/search-interface-symbol.png') as ImageSourcePropType} style={styles.icon} />
+        <Image source={require('./assets/Image/video.png') as ImageSourcePropType} style={styles.icon} />
+        <Image source={require('./assets/Image/shopping-bag.png') as ImageSourcePropType} style={styles.icon} />
+        <Image source={require('./assets/Image/profile-user.png') as ImageSourcePropType} style={styles.icon} />
+      </View>
+    </SafeAreaView>
+
     </View>
   );
 }
@@ -247,4 +276,62 @@ const styles = StyleSheet.create({
     height: 130,   
     marginBottom: 2,
   },
+  // Alert Button and Footer Section Styles
+  alertContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+    borderRadius: 10,  
+    padding: 15,  
+  },
+  alertButton: {
+    backgroundColor: '#FF4757',  
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25,  
+    shadowColor: '#000',  
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5,  
+  },
+  alertButtonText: {
+    fontSize: 16,
+    color: '#FFFFFF', 
+    fontWeight: 'bold',
+    textAlign: 'center',
+   },
+  
+  // Footer Section Styles
+  footerContainer: {
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  footer: {
+    height: 60,  
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF', 
+    borderTopWidth: 1,  
+    borderTopColor: '#DDD',
+    paddingHorizontal: 10,  
+  }, 
+
+  icon: {
+    width: 24,
+    height: 24,
+    tintColor: 'black',
+  },
+
 });
